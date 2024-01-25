@@ -1,20 +1,27 @@
 // todoListModule.js
 const TodoListModule = (() => {
-  let todos = [];
-
-  const addTodo = (todo) => {
-    todos.push(todo);
+  let projects = {
+    Default: [],
   };
 
-  const completeTodo = (index) => {
-    todos[index].completed = true;
+  const addTodo = (projectName, todo) => {
+    if (!projects[projectName]) {
+      projects[projectName] = [];
+    }
+    projects[projectName].push(todo);
   };
 
-  // Other todo list operations...
+  const completeTodo = (projectName, index) => {
+    projects[projectName][index].completed = true;
+  };
+
+  const getTodos = (projectName) => {
+    return projects[projectName] || [];
+  };
 
   return {
     addTodo,
     completeTodo,
-    // Other functions...
+    getTodos,
   };
 })();

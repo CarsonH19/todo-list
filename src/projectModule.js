@@ -3,13 +3,17 @@ const ProjectModule = (() => {
   let projects = ["Default"];
 
   const addProject = (projectName) => {
-    projects.push(projectName);
+    if (!projects.includes(projectName)) {
+      projects.push(projectName);
+    }
   };
 
-  // Other project operations...
+  const getProjects = () => {
+    return projects;
+  };
 
   return {
     addProject,
-    // Other functions...
+    getProjects,
   };
 })();
