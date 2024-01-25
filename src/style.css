@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  height: 50vh;
+  width: 50vw;
+  background-color: whitesmoke;
+}
