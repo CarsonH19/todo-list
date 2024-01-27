@@ -16,7 +16,7 @@ const completeTodo = (projectName, index) => {
   const completedTask = ProjectsModule.projects[projectName].splice(index, 1)[0];
   completedTask.completed = true;
 
-  const completedTasks = projects["Completed"] || [];
+  const completedTasks = ProjectsModule.projects["Completed"] || [];
   completedTasks.push(completedTask);
   ProjectsModule.projects["Completed"] = completedTasks;
 };

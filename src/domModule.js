@@ -7,8 +7,8 @@ export const renderProjects = () => {
   const projectSelect = document.getElementById("project-select");
   projectSelect.innerHTML = "";
 
-  const projects = ProjectsModule.getProjects();
-  projects.forEach((project) => {
+  const projectsToRender = ProjectsModule.getProjects();
+  projectsToRender.forEach((project) => {
     const option = document.createElement("option");
     option.value = project;
     option.textContent = project;

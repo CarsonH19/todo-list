@@ -4,13 +4,13 @@ const projects = {
 };
 
 const addProject = (projectName) => {
-  if (!projects[projectName]) {
-    projects[projectName] = [];
+  if (!ProjectsModule.projects[projectName]) {
+    ProjectsModule.projects[projectName] = [];
   }
 };
 
 const getProjects = () => {
-  return Object.keys(projects);
+  return Object.keys(ProjectsModule.projects);
 };
 
 export const ProjectsModule = {
