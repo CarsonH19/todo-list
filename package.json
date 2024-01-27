@@ -4,8 +4,8 @@
   "description": "The Odin Project - Todo List Project",
   "private": "true",
   "scripts": {
-    "build": "webpack", 
-    "predeploy": "npm run build", 
+    "build": "webpack",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
