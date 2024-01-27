@@ -1,12 +1,20 @@
 // projectModule.js
-const projects = ["Default"];
+const projects = {
+  Default: [],
+};
 
-export const addProject = (projectName) => {
-  if (!projects.includes(projectName)) {
-    projects.push(projectName);
+const addProject = (projectName) => {
+  if (!projects[projectName]) {
+    projects[projectName] = [];
   }
 };
 
-export const getProjects = () => {
-  return projects;
+const getProjects = () => {
+  return Object.keys(projects);
+};
+
+export const ProjectsModule = {
+  projects,
+  addProject,
+  getProjects,
 };

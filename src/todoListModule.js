@@ -1,21 +1,28 @@
+import { ProjectsModule } from "./projectModule";
+
 // todoListModule.js
-const projects = {
-  Default: [],
-};
-
-export const addTodo = (projectName, todo) => {
-  if (!projects[projectName]) {
-    projects[projectName] = [];
+const addTodo = (projectName, todo) => {
+  if (!ProjectsModule.projects[projectName]) {
+    ProjectsModule.addProject(projectName);
   }
-  projects[projectName].push(todo);
+  console.log(`projects: ${ProjectsModule.projects}`);
+  console.log(`projectName: ${projectName}`);
+  console.log(`Todo: ${todo}`);
+
+  ProjectsModule.projects[projectName].push(todo);
 };
 
-export const completeTodo = (projectName, index) => {
-  projects[projectName][index].completed = true;
+const completeTodo = (projectName, index) => {
+  const completedTask = ProjectsModule.projects[projectName].splice(index, 1)[0];
+  completedTask.completed = true;
+
+  const completedTasks = projects["Completed"] || [];
+  completedTasks.push(completedTask);
+  ProjectsModule.projects["Completed"] = completedTasks;
 };
 
-export const getTodos = (projectName) => {
-  return projects[projectName] || [];
+const getTodos = (projectName) => {
+  return ProjectsModule.projects[projectName] || [];
 };
 
 export const TodoListModule = {
