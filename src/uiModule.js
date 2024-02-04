@@ -20,6 +20,19 @@ const renderTodosForProject = (projectName) => {
 };
 
 const handleFormSubmit = (e) => {
+  const validateInput = (input, errorMessage) => {
+    if (!input.checkValidity()) {
+      input.setCustomValidity(errorMessage);
+      input.reportValidity();
+      input.classList.add('error');
+      return false;
+    } else {
+      input.setCustomValidity("");
+      input.classList.remove('error');
+      return true;
+    }
+  };
+
   const titleInput = document.getElementById("title");
   const descriptionInput = document.getElementById("description");
   const dueDateInput = document.getElementById("due-date");
@@ -33,39 +46,9 @@ const handleFormSubmit = (e) => {
 
   let formIsValid = true;
 
-  // Validate title input
-  if (!titleInput.checkValidity()) {
-    titleInput.setCustomValidity("Please enter a title");
-    titleInput.value = '';
-    titleInput.reportValidity();
-    titleInput.classList.add('error');
-    formIsValid = false;
-  } else {
-    titleInput.setCustomValidity("");
-    titleInput.classList.remove('error');
-  }
-
-  // Validate description input
-  if (!descriptionInput.checkValidity()) {
-    descriptionInput.setCustomValidity("Please enter a description");
-    descriptionInput.reportValidity();
-    descriptionInput.classList.add('error');
-    formIsValid = false;
-  } else {
-    descriptionInput.setCustomValidity("");
-    descriptionInput.classList.remove('error');
-  }
-
-  // Validate dueDate input
-  if (!dueDateInput.checkValidity()) {
-    dueDateInput.setCustomValidity("Please enter a valid due date");
-    dueDateInput.reportValidity();
-    dueDateInput.classList.add('error');
-    formIsValid = false;
-  } else {
-    dueDateInput.setCustomValidity("");
-    dueDateInput.classList.remove('error');
-  }
+  formIsValid = validateInput(titleInput, "Please enter a title") && formIsValid;
+  formIsValid = validateInput(descriptionInput, "Please enter a description") && formIsValid;
+  formIsValid = validateInput(dueDateInput, "Please enter a valid due date") && formIsValid;
 
   console.log("Form is valid:", formIsValid);
   e.preventDefault();
