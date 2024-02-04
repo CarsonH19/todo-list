@@ -5,9 +5,6 @@ const addTodo = (projectName, todo) => {
   if (!ProjectsModule.projects[projectName]) {
     ProjectsModule.addProject(projectName);
   }
-  console.log(`projects: ${ProjectsModule.projects}`);
-  console.log(`projectName: ${projectName}`);
-  console.log(`Todo: ${todo}`);
 
   ProjectsModule.projects[projectName].push(todo);
 };

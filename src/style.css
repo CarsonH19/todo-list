@@ -141,3 +141,13 @@ li button {
   min-width: 100px;
   max-width: 100px
 }
+
+input:focus:invalid,
+.error {
+  box-shadow: 0 0 5px 1px red;
+}
+
+textarea:focus:invalid,
+.error {
+  box-shadow: 0 0 5px 1px red;
+}

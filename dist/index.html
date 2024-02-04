@@ -27,10 +27,10 @@
       <div class="divider"></div>
 
       <!-- Todo Form -->
-      <form id="todo-form">
+      <form id="todo-form" novalidate>
         <div class="form-input">
           <label for="title">Title:</label>
-          <input type="text" maxlength="12" id="title" required />
+          <input type="text" maxlength="12" id="title" required pattern="[A-Za-z0-9]+"/>
         </div>
 
         <div class="form-group">
@@ -51,10 +51,10 @@
 
         <div class="form-input">
           <label for="description">Description:</label>
-          <textarea id="description" maxlength="50" required></textarea>
+          <textarea id="description" maxlength="50" required pattern="[A-Za-z0-9]+"></textarea>
         </div>
 
-        <button type=" ">Add Task</button>
+        <button type="submit">Add Task</button>
       </form>
 
       <div class="divider"></div>
